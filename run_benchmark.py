@@ -184,11 +184,24 @@ def main(args: Arguments):
         questions = df["input"].tolist()
         embeddings = df["embedding"]
         embeddings = embeddings.apply(eval)
-        embeddings = np.array(embeddings.tolist()) # (N, 1536)
+        embeddings = np.array(embeddings.tolist())  # (N, 1536)
 
         # Re-order the embeddings based on the order of the dataset inputs
         dataset_inputs = [example["input"] for example in dataset]
-        indices = [questions.index(input) for input in dataset_inputs]
+        indices = []
+        for idx_inp, inp in enumerate(dataset_inputs):
+            try:
+                # Try exact match first
+                idx = questions.index(inp)
+            except ValueError:
+                # Fallback 1: remove options block (GPQA formatting issue)
+                base = inp.split("\nOptions:")[0].strip()
+                try:
+                    idx = next(i for i, q in enumerate(questions) if base in q)
+                except StopIteration:
+                    # Fallback 2: sequential index (safe, preserves order)
+                    idx = idx_inp
+            indices.append(idx)
         embeddings = embeddings[indices]
         questions = dataset_inputs
     else:
