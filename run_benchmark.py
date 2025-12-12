@@ -79,7 +79,35 @@ def main(args: Arguments):
     load_dotenv("config.env")
 
     # Read the prompt files
-    args.generator_prompt = read_file(args.generator_prompt_path)
+    if args.generator_prompt_path == "BL":
+        args.generator_prompt = """
+                                        Please answer the following question.
+                                        ————
+                                        ## FINAL ANSWER FORMAT
+                                        ALWAYS present your final answer in the following format:
+                                        FINAL ANSWER:
+                                        <answer>
+                                        (final answer)
+                                        </answer>
+                                        N.B. Make sure that the final answer is properly wrapped inside the <answer> block.
+                                        * For multiple-choice questions: Only provide the letter choice (e.g., (A))
+                                        * For numerical answers: Only provide the final number (e.g., 42)
+                                        * For other types of answers, including free-response answers: Provide the complete final answer
+                                        Example:
+                                        Q: What is the meaning of life?
+                                        A: [...]
+                                        FINAL ANSWER:
+                                        <answer>
+                                        42
+                                        </answer>
+                                        ————
+                                        INPUT:
+                                        '''
+                                        [[QUESTION]]
+                                        '''
+                                        """
+    else:
+        args.generator_prompt = read_file(args.generator_prompt_path)
     if args.cheatshet_prompt_path:
         args.cheatsheet_prompt = read_file(args.cheatshet_prompt_path)
     else:
