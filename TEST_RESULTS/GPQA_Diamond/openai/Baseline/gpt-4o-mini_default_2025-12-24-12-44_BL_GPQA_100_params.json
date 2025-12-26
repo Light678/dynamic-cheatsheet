@@ -1,0 +1,21 @@
+{
+    "task": "GPQA_Diamond",
+    "execute_python_code": true,
+    "retrieve_top_k": 3,
+    "cheatshet_prompt_path": null,
+    "save_directory": "TEST_RESULTS",
+    "additional_flag_for_save_path": "BL_GPQA_100",
+    "save_path_name": "TEST_RESULTS/GPQA_Diamond/openai/gpt-4o-mini_default_2025-12-24-12-44_BL_GPQA_100.jsonl",
+    "approach_name": "default",
+    "model_name": "openai/gpt-4o-mini",
+    "max_tokens": 2048,
+    "temperature": 0.0,
+    "generator_prompt": "\n                                        Please answer the following question.\n                                        \u2014\u2014\u2014\u2014\n                                        ## FINAL ANSWER FORMAT\n                                        ALWAYS present your final answer in the following format:\n                                        FINAL ANSWER:\n                                        <answer>\n                                        (final answer)\n                                        </answer>\n                                        N.B. Make sure that the final answer is properly wrapped inside the <answer> block.\n                                        * For multiple-choice questions: Only provide the letter choice (e.g., (A))\n                                        * For numerical answers: Only provide the final number (e.g., 42)\n                                        * For other types of answers, including free-response answers: Provide the complete final answer\n                                        Example:\n                                        Q: What is the meaning of life?\n                                        A: [...]\n                                        FINAL ANSWER:\n                                        <answer>\n                                        42\n                                        </answer>\n                                        \u2014\u2014\u2014\u2014\n                                        INPUT:\n                                        '''\n                                        [[QUESTION]]\n                                        '''\n                                        ",
+    "continue_from_last_run_path": null,
+    "generator_prompt_path": "BL",
+    "no_shuffle": false,
+    "cheatsheet_prompt": "(empty)",
+    "initialize_cheatsheet_path": null,
+    "max_n_samples": 100,
+    "max_num_rounds": 1
+}
