@@ -129,8 +129,11 @@ def main(args: Arguments):
     if args.task in PREDEFINED_PROMPTS and args.task != "P3_Test":
         dataset = load_dataset("turingmachine/meta-prompting")
         dataset = dataset[args.task]
-    elif args.task in ["GPQA_Diamond", "AIME_2020_2024", "AIME_2024", "AIME_2025", "MMLU_Pro_Physics", "MMLU_Pro_Engineering", "MathEquationBalancer"]:
-        dataset = load_from_disk(f"data/{args.task}")
+    elif args.task in ["GPQA_Diamond", "AIME_2020_2024", "AIME_2024", "AIME_2025",
+                           "MMLU_Pro_Physics", "MMLU_Pro_Engineering", "MathEquationBalancer",
+                           "CommonsenseQA"]:
+        dataset_dict = load_from_disk(f"data/{args.task}")
+        dataset = dataset_dict["validation"]
     else:
         raise ValueError(f"Task {args.task} is not recognized. Please make sure the task name is correct.")
     
@@ -310,8 +313,8 @@ def main(args: Arguments):
             result = eval_for_GameOf24(original_input, final_answer)
         elif args.task in ["AIME_2025", "AIME_2024", "AIME_2020_2024"]:
             result = eval_for_exact_matching_with_no_punctuation(final_answer.lower(), original_target.lower())
-        elif args.task in ["GPQA_Diamond", "MMLU_Pro_Engineering", "MMLU_Pro_Physics"]:
-            result = result = eval_for_multiple_choice(input, final_answer, original_target)
+        elif args.task in ["GPQA_Diamond", "MMLU_Pro_Engineering", "MMLU_Pro_Physics", "CommonsenseQA"]:
+            result = eval_for_multiple_choice(input, final_answer, original_target)
         elif args.task == "MathEquationBalancer":
             result = eval_equation_balancer(None, final_answer, original_target)
         else:
