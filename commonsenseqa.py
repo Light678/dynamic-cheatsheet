@@ -1,6 +1,7 @@
 from datasets import load_dataset, DatasetDict
 import os
 
+
 def format_example(ex):
     stem = ex["question"]  # tau/commonsense_qa: string
 
@@ -37,6 +38,6 @@ def main():
     ds2.save_to_disk(out_path)
     print("Saved to:", out_path)
 
+
 if __name__ == "__main__":
     main()
-

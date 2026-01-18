@@ -4,11 +4,14 @@ import pandas as pd
 from datasets import load_from_disk
 from openai import OpenAI
 
+<<<<<<< HEAD
 
 def normalize_newlines(s: str) -> str:
     return s.replace("\r\n", "\n").replace("\r", "\n")
 
 
+=======
+>>>>>>> 5b27e88 (Synchronized Repo)
 MODEL = os.getenv("EMBEDDING_MODEL", "text-embedding-3-small")
 TASK = "CommonsenseQA"
 

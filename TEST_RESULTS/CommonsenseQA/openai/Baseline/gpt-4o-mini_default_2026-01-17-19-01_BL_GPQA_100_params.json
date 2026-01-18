@@ -1,0 +1,21 @@
+{
+    "generator_prompt_path": "BL",
+    "task": "CommonsenseQA",
+    "max_n_samples": 100,
+    "additional_flag_for_save_path": "BL_GPQA_100",
+    "temperature": 0.0,
+    "generator_prompt": "\n                                        Please answer the following question.\n                                        \u2014\u2014\u2014\u2014\n                                        ## FINAL ANSWER FORMAT\n                                        ALWAYS present your final answer in the following format:\n                                        FINAL ANSWER:\n                                        <answer>\n                                        (final answer)\n                                        </answer>\n                                        N.B. Make sure that the final answer is properly wrapped inside the <answer> block.\n                                        * For multiple-choice questions: Only provide the letter choice (e.g., (A))\n                                        * For numerical answers: Only provide the final number (e.g., 42)\n                                        * For other types of answers, including free-response answers: Provide the complete final answer\n                                        Example:\n                                        Q: What is the meaning of life?\n                                        A: [...]\n                                        FINAL ANSWER:\n                                        <answer>\n                                        42\n                                        </answer>\n                                        \u2014\u2014\u2014\u2014\n                                        INPUT:\n                                        '''\n                                        [[QUESTION]]\n                                        '''\n                                        ",
+    "cheatsheet_prompt": "(empty)",
+    "initialize_cheatsheet_path": null,
+    "approach_name": "default",
+    "max_tokens": 2048,
+    "continue_from_last_run_path": null,
+    "save_directory": "TEST_RESULTS",
+    "model_name": "openai/gpt-4o-mini",
+    "cheatshet_prompt_path": null,
+    "save_path_name": "TEST_RESULTS/CommonsenseQA/openai/gpt-4o-mini_default_2026-01-17-19-01_BL_GPQA_100.jsonl",
+    "execute_python_code": true,
+    "max_num_rounds": 1,
+    "retrieve_top_k": 3,
+    "no_shuffle": false
+}

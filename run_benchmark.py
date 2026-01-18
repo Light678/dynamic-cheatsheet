@@ -222,19 +222,27 @@ def main(args: Arguments):
         indices = []
         for idx_inp, inp in enumerate(dataset_inputs):
             try:
-                # Try exact match first
                 idx = questions.index(inp)
             except ValueError:
-                # Fallback 1: remove options block (GPQA formatting issue)
                 base = inp.split("\nOptions:")[0].strip()
                 try:
                     idx = next(i for i, q in enumerate(questions) if base in q)
                 except StopIteration:
-                    # Fallback 2: sequential index (safe, preserves order)
                     idx = idx_inp
             indices.append(idx)
+
+        # FIX: indices validieren (verhindert out-of-bounds)
+        n = len(embeddings)
+        bad = [i for i in indices if (i < 0 or i >= n)]
+        if bad:
+            raise ValueError(
+                f"Found {len(bad)} out-of-bounds indices for embeddings (len={n}). "
+                f"min={min(indices)}, max={max(indices)}. Example bad: {bad[:10]}"
+            )
+
         embeddings = embeddings[indices]
         questions = dataset_inputs
+
     else:
         questions = [example["input"] for example in dataset]
 

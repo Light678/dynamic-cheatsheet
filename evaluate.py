@@ -164,12 +164,12 @@ def plot_correct_instances_multi(method_results: dict):
 
 if __name__ == "__main__":
 
-    file_path_dcrs = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\GPQA_Diamond\openai\RetrievalSynthesis\gpt-4o-mini_DynamicCheatsheet_RetrievalSynthesis_2025-12-24-17-39_DCRS_GPQA_100.jsonl"
-    file_path_dccu = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\GPQA_Diamond\openai\Cumulative\gpt-4o-mini_DynamicCheatsheet_Cumulative_2025-12-24-15-02_DCCU_GPQA_100.jsonl"
-    file_path_base = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\GPQA_Diamond\openai\Baseline\gpt-4o-mini_default_2025-12-24-12-44_BL_GPQA_100.jsonl"
-    file_path_dr = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\GPQA_Diamond\openai\Retrieval\gpt-4o-mini_Dynamic_Retrieval_2025-12-24-14-20_DR_GPQA_100.jsonl"
-    file_path_dcempty = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\GPQA_Diamond\openai\EmptyMemory\gpt-4o-mini_default_2025-12-24-13-02_DCEMPTY_GPQA_100.jsonl"
-    file_path_fh = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\GPQA_Diamond\openai\FullHistory\gpt-4o-mini_FullHistoryAppending_2025-12-24-13-38_FH_GPQA_100.jsonl"
+    file_path_dcrs = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\CommonsenseQA\openai\Retrieval&Synthesis\gpt-4o-mini_DynamicCheatsheet_RetrievalSynthesis_2026-01-18-20-10_DCRS_GPQA_100.jsonl"
+    file_path_dccu = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\CommonsenseQA\openai\Cumulative\gpt-4o-mini_DynamicCheatsheet_Cumulative_2026-01-18-17-49_DCCU_GPQA_100.jsonl"
+    file_path_base = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\CommonsenseQA\openai\Baseline\gpt-4o-mini_default_2026-01-17-19-01_BL_GPQA_100.jsonl"
+    file_path_dr = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\CommonsenseQA\openai\Retrieval\gpt-4o-mini_Dynamic_Retrieval_2026-01-17-19-40_DR_GPQA_100.jsonl"
+    file_path_dcempty = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\CommonsenseQA\openai\EmptyM\gpt-4o-mini_default_2026-01-17-19-09_DCEMPTY_GPQA_100.jsonl"
+    file_path_fh = r"C:\Users\jonas\Documents\Code Files\repo_suzgun\dynamic-cheatsheet\TEST_RESULTS\CommonsenseQA\openai\FullHistory\gpt-4o-mini_FullHistoryAppending_2026-01-17-19-22_FH_GPQA_100.jsonl"
 
     results_dcrs = ExAs.extract_tuples(file_path_dcrs)
     results_dccu = ExAs.extract_tuples(file_path_dccu)
